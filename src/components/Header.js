@@ -4,7 +4,7 @@ function Header() {
     return (
         <div>
            <nav className="navbar navbar-light bg-light justify-content-between">
-              <a className="navbar-brand">OnlineShop</a>
+              <a href="/" className="navbar-brand">OnlineShop</a>
             </nav>
         </div>
     )

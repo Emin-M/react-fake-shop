@@ -6,8 +6,8 @@ export const fetchItems = () => async (dispatch) => {
     dispatch({type: "FETCH_SHOP", payload: response.data})
 }
 
-/*export const fetchItems = (id) => async (dispatch) => {
-    const response = await axios.get('https://fakestoreapi.com/products');
+export const fetchItem = (id) => async (dispatch) => {
+    const response = await axios.get(`https://fakestoreapi.com/products/${id}`);
 
-    dispatch({type: "FETCH_SHOP", payload: response.data})
-}*/
+    dispatch({type: "FETCH_ITEM", payload: response.data})
+}
