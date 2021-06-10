@@ -1,18 +1,18 @@
 import { useEffect } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { fetchItems, fetchItem } from "../actions";
+import { fetchItems, fetchItem, addToCard } from "../actions";
 
-function ShopList({ fetchItems, shops, fetchItem }) {
+function ShopList({ fetchItems, shops, fetchItem, addToCard }) {
     useEffect(()=> {
         fetchItems();
     },[])
 
     const renderList = shops.shops.map((shop)=>{
         return (
-            <Link to={`/product/${shop.id}`} key={shop.title}>
-               <div className="card"  
-                    onClick={()=>fetchItem(shop.id)}>
+               <div className="card" key={shop.title}>
+               <Link to={`/product/${shop.id}`}>
+               <div onClick={()=>fetchItem(shop)}>
                <img 
                 className="card-img-top" 
                 src={shop.image} 
@@ -21,9 +21,11 @@ function ShopList({ fetchItems, shops, fetchItem }) {
                  <h5 className="card-title">{shop.title}</h5>
                  <strong style={{fontSize:'24px'}}>{shop.price} $</strong>
                </div>
-                 <button className="btn btn-primary btn-lg">Add To Card</button>
                </div>
-          </Link>
+               </Link>
+                 <button className="btn btn-primary btn-lg"
+                         onClick={()=>addToCard(shop)}>Add To Card</button>
+               </div>
         )
     })
 
@@ -38,4 +40,4 @@ const mapStateToProps = (state) => {
     return { shops: state.shops }
 }
 
-export default connect(mapStateToProps, {fetchItems, fetchItem})(ShopList);
+export default connect(mapStateToProps, {fetchItems, fetchItem, addToCard})(ShopList);

@@ -1,7 +1,7 @@
 .containerr {
   display: flex;
   flex-wrap: wrap;
-  margin: 70px;
+  margin: 70px 0;
 }
 
 .card {
@@ -25,6 +25,7 @@ img {
 }
 
 .navbar {
+  display: flex;
   padding: 5px 100px;
   transform: translateY(-120%);
   box-shadow: 3px 3px 5px #aaaaaa;
@@ -40,6 +41,10 @@ img {
 
 .navbar-brand:hover {
   cursor: pointer;
+}
+
+.btn-secondary {
+  margin-left: auto;  
 }
 
 .details {
@@ -60,7 +65,7 @@ img {
   flex-direction: column;
   text-align: center;
   width: 50%;
-  transform: translate(10%,-5%);
+  transform: translate(10%, -5%);
 }
 
 .details h1 {

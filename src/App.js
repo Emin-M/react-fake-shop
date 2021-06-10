@@ -4,16 +4,18 @@ import './App.css';
 import Header from './components/Header';
 import ProductDetail from './components/ProductDetail';
 import ShopList from "./components/ShopList";
+import Card from "./components/Card";
 
-function App({ product }) {
-  console.log(product.product.id);
+function App({ product, card }) {
+  console.log(card);
   return (
-    <div className="App">
+    <div>
     <BrowserRouter>
       <div>
          <Header />
          <Route path="/" exact component={ShopList} />
          <Route path={`/product/${product.product.id}`} exact component={ProductDetail} />
+         <Route path="/card" exact component={Card} />
       </div>
       </BrowserRouter>
     </div>
@@ -21,7 +23,9 @@ function App({ product }) {
 }
 
 const mapStateToProps = (state) => {
-  return {product: state.product}
+  return {product: state.product,
+          card: state.card
+  }
 }
 
 export default connect(mapStateToProps)(App);
