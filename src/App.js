@@ -7,7 +7,6 @@ import ShopList from "./components/ShopList";
 import Card from "./components/Card";
 
 function App({ product, card }) {
-  console.log(card);
   return (
     <div>
     <BrowserRouter>

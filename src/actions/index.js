@@ -13,15 +13,22 @@ export const fetchItem = (shop) => {
     }
 };
 
-export const addToCard = (product) => {
-    return {
-        type: "ADD_TO_CARD",
-        payload: product
-    }
-}
-
 /*export const fetchItem = (id) => async (dispatch) => {
     const response = await axios.get(`https://fakestoreapi.com/products/${id}`);
 
     dispatch({type: "FETCH_ITEM", payload: response.data})
 }*/
+
+export const addToCard = (product) => {
+    return {
+        type: "ADD_TO_CARD",
+        payload: product
+    }
+};
+
+/*export const deleteItem = (id) => {
+    return {
+        type: "DELETE_ITEM",
+        payload: id
+    }
+};*/

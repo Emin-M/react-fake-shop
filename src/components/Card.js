@@ -3,18 +3,21 @@ import { connect } from "react-redux";
 
 
 const Card = ({ card }) => {
-    console.log(card.card);
     const renderList = card.card.map((item) => { 
         return (
-            <div>
-                <img src={item.card.image} alt={item.card.title} />
-                <h1>{item.title}</h1>
-            </div>
+            <div className="card">
+              <div className="card-body">
+                <h4 className="card-title">{item.card.title}</h4>
+                <p className="card-text">{item.card.description}</p>
+                <a href="#" className="btn btn-primary">Remove Item</a>
+              </div>
+             <img className="card-img-bottom" src={item.card.image} alt={item.card.title} />
+           </div>
         )
     })
 
     return (
-        <div>{renderList}</div>
+        <div style={{"marginTop":'70px',"display":'flex',"flexWrap":'wrap'}}>{renderList}</div>
     )
 }
 
