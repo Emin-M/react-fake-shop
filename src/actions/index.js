@@ -26,9 +26,9 @@ export const addToCard = (product) => {
     }
 };
 
-/*export const deleteItem = (id) => {
+export const deleteItem = (id) => {
     return {
-        type: "DELETE_ITEM",
+        type: "DELETE_FROM_CARD",
         payload: id
     }
-};*/
+};

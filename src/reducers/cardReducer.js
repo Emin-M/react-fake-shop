@@ -2,7 +2,7 @@ const INITIAL_STATE = {
     card: []
 }
 
-const cardReducer = (state = INITIAL_STATE, action) => {
+export const cardReducer = (state = INITIAL_STATE, action) => {
     switch (action.type) {
         case "ADD_TO_CARD":
             return {
@@ -12,6 +12,11 @@ const cardReducer = (state = INITIAL_STATE, action) => {
                   {card: action.payload}
                 ]
               }; 
+        case "DELETE_FROM_CARD":
+            return {
+                ...state,
+                card: state.card.card.filter((item) => item.id !== action.payload)
+              };
         default:
             return state;
     }
