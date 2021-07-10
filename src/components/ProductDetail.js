@@ -16,7 +16,9 @@ function ProductDetail({ product, fetchItem, addToCard }) {
         addToCard(pr)
         history.push("/")
         e.preventDefault()
-        toast.success("Item added card successfully!")
+        toast.success("Item added card successfully!", {
+            autoClose: 1500
+        })
     }
 
     return (
