@@ -1,30 +1,21 @@
-import { BrowserRouter, Route } from "react-router-dom";
-import { connect } from "react-redux";
+import { Route } from "react-router-dom";
 import './App.css';
+import { ToastContainer } from "react-toastify";
 import Header from './components/Header';
 import ProductDetail from './components/ProductDetail';
 import ShopList from "./components/ShopList";
 import Card from "./components/Card";
 
-function App({ product, card }) {
+function App() {
   return (
-    <div>
-    <BrowserRouter>
       <div>
+         <ToastContainer />
          <Header />
          <Route path="/" exact component={ShopList} />
-         <Route path={`/product/${product.product.id}`} exact component={ProductDetail} />
-         <Route path="/card" exact component={Card} />
-      </div>
-      </BrowserRouter>
+         <Route path={"/product/:id"} exact component={ProductDetail} />
+         <Route path="/card" component={Card} />
     </div>
   );
 }
 
-const mapStateToProps = (state) => {
-  return {product: state.product,
-          card: state.card
-  }
-}
-
-export default connect(mapStateToProps)(App);
+export default App;

@@ -6,18 +6,11 @@ export const fetchItems = () => async (dispatch) => {
     dispatch({type: "FETCH_SHOP", payload: response.data})
 };
 
-export const fetchItem = (shop) => {
-    return {
-        type: "FETCH_ITEM", 
-        payload: shop
-    }
-};
-
-/*export const fetchItem = (id) => async (dispatch) => {
+export const fetchItem = (id) => async (dispatch) => {
     const response = await axios.get(`https://fakestoreapi.com/products/${id}`);
 
     dispatch({type: "FETCH_ITEM", payload: response.data})
-}*/
+}
 
 export const addToCard = (product) => {
     return {
