@@ -91,3 +91,28 @@ img {
 .details button {
   transform: translateY(30%);
 }
+
+/*card bottom*/
+
+.card-bottom {
+  display: flex;
+}
+
+.card-bottom .count {
+  font-size: 17px;
+  padding: 15px 25px;
+}
+
+.card-bottom .count-s {
+  padding: 10px;
+  font-size: 28px;
+}
+
+.card-bottom .count button {
+  outline: none;
+}
+
+.card-bottom .price {
+  font-size: 20px;
+  padding: 19px 25px;
+}
