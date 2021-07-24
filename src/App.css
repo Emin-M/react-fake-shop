@@ -49,7 +49,7 @@ img {
 }
 
 .btn-secondary {
-  margin-left: auto;  
+  margin-left: auto;
 }
 
 .details {
@@ -115,4 +115,14 @@ img {
 .card-bottom .price {
   font-size: 20px;
   padding: 19px 25px;
+}
+
+.fa-shopping-cart {
+  font-size: 3rem;
+  color: #eb2323;
+  transition: .3s ease-in-out;
+}
+
+.fa-shopping-cart:hover {
+  color: greenyellow;
 }

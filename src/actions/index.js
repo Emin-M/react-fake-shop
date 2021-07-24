@@ -25,3 +25,17 @@ export const deleteItem = (id) => {
         payload: id
     }
 };
+
+export const decraseCount = (id) => {
+    return {
+        type: "DECRESE_COUNT",
+        payload: id
+    }
+};
+
+export const increaseCount = (id) => {
+    return {
+        type: "INCREASE_COUNT",
+        payload: id
+    }
+};

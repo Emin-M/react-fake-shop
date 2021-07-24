@@ -1,10 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { connect } from "react-redux";
-import { deleteItem } from "../actions";
+import { deleteItem, decraseCount, increaseCount } from "../actions";
 import { toast } from "react-toastify";
 
 
-const Card = ({ card, deleteItem }) => {
+const Card = ({ card, deleteItem, decraseCount, increaseCount }) => {
     const del = (id) => {
         deleteItem(id)
         toast.warn('Item deleted from card!', {
@@ -13,13 +13,11 @@ const Card = ({ card, deleteItem }) => {
     };
 
     const decCount = (id) => {
-        const findItem = card.card.find(c => c.id === id)
-        findItem.count -= 1;
+        decraseCount(id)
     };
 
     const incCount = (id) => {
-        const findItem = card.card.find(c => c.id === id)
-        findItem.count += 1;
+        increaseCount(id)
     };
 
     const renderList = card.card.map((item) => {
@@ -56,4 +54,4 @@ const mapStateToProps = (state) => {
     return { card: state.card }
 }
 
-export default connect(mapStateToProps, { deleteItem })(Card);
+export default connect(mapStateToProps, { deleteItem, decraseCount, increaseCount })(Card);

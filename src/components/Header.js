@@ -7,7 +7,7 @@ function Header() {
            <nav className="navbar navbar-light bg-light">
               <Link to="/" className="navbar-brand">OnlineShop</Link>
               <Link to="card" className="btn btn-secondary btn-lg">
-              <button>Card</button>
+              <i className="fas fa-shopping-cart"></i>
               </Link>
             </nav>
         </div>
