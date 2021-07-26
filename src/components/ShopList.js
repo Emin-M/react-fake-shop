@@ -4,8 +4,9 @@ import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { fetchItems, addToCard } from "../actions";
 
+
 function ShopList({ fetchItems, shops, card, addToCard }) {
-    const test = "test";
+    const test = "test"; 
 
     useEffect(()=> {
         fetchItems();

@@ -1,10 +1,19 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import { deleteItem, decraseCount, increaseCount } from "../actions";
+import { deleteItem, decraseCount, increaseCount, addToCard } from "../actions";
 import { toast } from "react-toastify";
 
 
-const Card = ({ card, deleteItem, decraseCount, increaseCount }) => {
+const Card = ({card,deleteItem,decraseCount,increaseCount,addToCard})=>{
+    let [ totalPrice, setTotalPrice ] = useState(Number())
+    useEffect(() => {
+        let tP = Number()
+        card.card.map(c => {
+            tP += c.price * c.count
+        })
+        setTotalPrice(tP)
+    }, [card]);
+
     const del = (id) => {
         deleteItem(id)
         toast.warn('Item deleted from card!', {
@@ -46,7 +55,13 @@ const Card = ({ card, deleteItem, decraseCount, increaseCount }) => {
     });
 
     return (
-        <div style={{"marginTop":'70px',"display":'flex',"flexWrap":'wrap'}}>{renderList}</div>
+        <div className="cardC">
+        <div className="totalPrice">
+            <h2>Total Price:</h2><h2>{totalPrice.toFixed(2)} $</h2>
+            <button className="btn btn-lg btn-primary">Payment</button>
+        </div>
+        <div className="list">{renderList}</div>
+        </div>
     )
 }
 
@@ -54,4 +69,4 @@ const mapStateToProps = (state) => {
     return { card: state.card }
 }
 
-export default connect(mapStateToProps, { deleteItem, decraseCount, increaseCount })(Card);
+export default connect(mapStateToProps, { deleteItem, decraseCount, increaseCount, addToCard })(Card);

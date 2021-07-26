@@ -6,7 +6,7 @@ function Header() {
         <div>
            <nav className="navbar navbar-light bg-light">
               <Link to="/" className="navbar-brand">OnlineShop</Link>
-              <Link to="card" className="btn btn-secondary btn-lg">
+              <Link to="/card" className="btn btn-secondary btn-lg">
               <i className="fas fa-shopping-cart"></i>
               </Link>
             </nav>
