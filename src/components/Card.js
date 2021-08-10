@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import { deleteItem, decraseCount, increaseCount, addToCard } from "../actions";
+import { Link } from "react-router-dom";
+import { deleteItem, decraseCount, increaseCount, addToCard, clearCard } from "../actions";
 import { toast } from "react-toastify";
 
 
-const Card = ({card,deleteItem,decraseCount,increaseCount,addToCard})=>{
+const Card = ({card, deleteItem, decraseCount, increaseCount, addToCard,   clearCard})=>{
     let [ totalPrice, setTotalPrice ] = useState(Number())
+    const [ hr, setHr ] = useState();
+
     useEffect(() => {
+        card.card.length > 0 ? setHr(true) : setHr(false)
+
         let tP = Number()
         card.card.map(c => {
             tP += c.price * c.count
@@ -31,36 +36,57 @@ const Card = ({card,deleteItem,decraseCount,increaseCount,addToCard})=>{
 
     const renderList = card.card.map((item) => {
         return (
-            <div className="card" key={item.id}>
-            <i className="fas fa-times-circle"
-            onClick={()=>del(item.id)}></i>
-              <div className="card-body">
-                <h4 className="card-title">{item.title}</h4>
-              </div>
-             <img className="card-img-bottom" src={item.image} alt={item.title} />
-             <div className="card-bottom">
-              <div className="count">
-                <button className="btn btn-primary"
-                        onClick={()=>decCount(item.id)}>-</button>
-                <span className="count-s">{item.count}</span>
-                <button className="btn btn-primary"
-                        onClick={()=>incCount(item.id)}>+</button>
-              </div> 
-              <div className="price">
-               <span>Price: {item.price * item.count} $</span>
-              </div>
-             </div>
-           </div>
+          <div className="cover" key={Math.random()}>
+            <div className="div1">
+                <div className="image-div">
+                   <img src={item.image} alt="item" />
+                </div>
+                <h4>{item.title}</h4>
+            </div>
+            <h2>{item.price * item.count} $</h2>
+            <div className="count"> 
+                <p className="btnn"
+                      onClick={()=>decCount(item.id)}>-</p>
+                    <span>{item.count}</span>
+                <p className="btnn"
+                        onClick={()=>incCount(item.id)}>+</p>
+            </div> 
+            <i className="fas fa-trash"
+               onClick={()=>del(item.id)}></i>
+          </div>
         )
     });
 
     return (
-        <div className="cardC">
-        <div className="totalPrice">
-            <h2>Total Price:</h2><h2>{totalPrice.toFixed(2)} $</h2>
-            <button className="btn btn-lg btn-primary">Payment</button>
-        </div>
-        <div className="list">{renderList}</div>
+        <div>
+            <ul className="container">
+                <li>Item</li>
+                <li>Price</li>
+                <li>Quantity</li>
+                <li>#</li>
+            </ul>
+            <hr className="hr" />
+            <div className="list container">{renderList}</div>
+            {hr ? <hr className="hrr" /> : ""}
+            <div className={hr ? "total" : "total totall"}> 
+                <div className="totalBtns">
+                    <Link to="/"><button className="btn btn-primary">
+                     Continue Shopping</button></Link>
+                    <button onClick={()=>clearCard()}
+                            className="btn btn-danger">
+                    Clear Shopping Card</button>
+                </div>
+                <div className="totalPrice">
+                    <h3 style={{fontWeight:"600"}}>
+                    Subtotal : $ {totalPrice.toFixed(2)}</h3>
+                    <h4>Shipping Fee : {hr ? 3.24 : 0.00} $</h4>
+                    <hr className="hrrr" />
+                    <h1 style={{fontWeight:"600"}}>
+                    Order Total: $ {Number(totalPrice.toFixed(2)) + 3.24}</h1>
+                </div>
+                <button className="btn btn-lg btn-success">
+                Make a Payment</button>
+            </div>
         </div>
     )
 }
@@ -69,4 +95,4 @@ const mapStateToProps = (state) => {
     return { card: state.card }
 }
 
-export default connect(mapStateToProps, { deleteItem, decraseCount, increaseCount, addToCard })(Card);
+export default connect(mapStateToProps, { deleteItem, decraseCount, increaseCount, addToCard, clearCard })(Card);

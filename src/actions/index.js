@@ -39,3 +39,7 @@ export const increaseCount = (id) => {
         payload: id
     }
 };
+
+export const clearCard = () => {
+    return {type: "CLEAR CARD"}
+}

@@ -41,6 +41,8 @@ export const cardReducer = (state = INITIAL_STATE, action) => {
                 ...state,
                 card: state.card,
             }
+        case "CLEAR CARD":
+            return { ...state, card: [] }
         default:
              return state;
     }
