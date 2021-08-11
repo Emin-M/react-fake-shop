@@ -59,6 +59,14 @@ img {
   border-radius: 50%;
 }
 
+select {
+  width: 7.5em;
+  height: 2.3em;
+  background-color: #eb2323;
+  color: #ffffff;
+  transform: translate(70%, 10%);
+}
+
 .btn-secondary {
   margin-left: auto;
 }

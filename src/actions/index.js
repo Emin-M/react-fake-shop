@@ -43,3 +43,11 @@ export const increaseCount = (id) => {
 export const clearCard = () => {
     return {type: "CLEAR CARD"}
 }
+
+export const filterToHigh = () => {
+    return {type: "FILTERTOHIGH"}
+}
+
+export const filterToLower = () => {
+    return {type: "FILTERTOLOWER"}
+}

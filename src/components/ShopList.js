@@ -6,11 +6,10 @@ import { fetchItems, addToCard } from "../actions";
 
 
 function ShopList({ fetchItems, shops, card, addToCard }) {
-    const test = "test"; 
 
     useEffect(()=> {
         fetchItems();
-    },[test]);
+    }, []);
 
     const cardFunction = (shop) => {
         const checkItem = card.card.find(c => c.id === shop.id);
