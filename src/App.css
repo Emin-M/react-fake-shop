@@ -1,12 +1,14 @@
 .containerr {
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
 }
 
 .card {
   box-shadow: 10px 10px 5px #aaaaaa;
   width: 370px;
-  margin: 13px;
+  margin: 20px;
   margin-top: 85px;
   padding: 7px;
   text-align: center;
@@ -169,7 +171,7 @@ ul li {
   margin-bottom: 1.7em;
 }
 
-.cover + .cover {
+.cover+.cover {
   border-top: 2px solid rgb(219, 255, 166);
   padding-top: 3em;
 }
